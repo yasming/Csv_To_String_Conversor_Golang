@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  server:
+    container_name: csv_wrapper
+    build:
+      context: .
+    command: nodemon --exec go run main.go --signal SIGTERM
+    ports:
+      - "9898:9898"
+    volumes:
+      - .:/app
