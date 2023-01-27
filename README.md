@@ -1,9 +1,11 @@
 # Csv_To_String_Conversor_Golang
 
-This is a project that will receive a csv(only numbers accepted in the spreadsheet and needs to be a square matrix) as input in the body of the request and convert it for in many ways, showing in a json response, for example:
+This is a project that will receive a csv(only numbers accepted in the spreadsheet and needs to be a square matrix) as input in the body of the request and convert it for in many ways, for example:
 1. Csv converted to an array
 2. Csv converted to only one line string with all records
 3. Show the sum of the numbers in the spreadsheet
+
+The response will be show as a json response in the endpoint
 
 ## Prerequisites
 
