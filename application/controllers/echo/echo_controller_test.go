@@ -23,7 +23,7 @@ func TestReturnInvalidTypeOfRequest(t *testing.T) {
 
 func TestReturnInvalidSizeOfSpreadsheet(t *testing.T) {
 	router, responseDecoder := setupRoutes()
-	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/invalid_size.csv")
+	body, multipartNewWriter := setupFileBody("./test_spreadsheets/invalid_size.csv")
 	req, _ := http.NewRequest("POST", "/echo", body)
 	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
 	router.ServeHTTP(responseDecoder, req)
@@ -33,7 +33,7 @@ func TestReturnInvalidSizeOfSpreadsheet(t *testing.T) {
 
 func TestReturnInvalidValuesInSpreadsheet(t *testing.T) {
 	router, responseDecoder := setupRoutes()
-	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/invalid_matrix.csv")
+	body, multipartNewWriter := setupFileBody("./test_spreadsheets/invalid_matrix.csv")
 	req, _ := http.NewRequest("POST", "/echo", body)
 	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
 	router.ServeHTTP(responseDecoder, req)
@@ -43,7 +43,7 @@ func TestReturnInvalidValuesInSpreadsheet(t *testing.T) {
 
 func TestReturnArrayFromSpreadsheetRecords(t *testing.T) {
 	router, responseDecoder := setupRoutes()
-	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/valid.csv")
+	body, multipartNewWriter := setupFileBody("./test_spreadsheets/valid.csv")
 	req, _ := http.NewRequest("POST", "/echo", body)
 	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
 	router.ServeHTTP(responseDecoder, req)
@@ -53,7 +53,7 @@ func TestReturnArrayFromSpreadsheetRecords(t *testing.T) {
 
 func TestReturnOnlyOneLineForTypeFlattenFromSpreadsheetRecords(t *testing.T) {
 	router, responseDecoder := setupRoutes()
-	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/valid.csv")
+	body, multipartNewWriter := setupFileBody("./test_spreadsheets/valid.csv")
 	req, _ := http.NewRequest("POST", "/echo?type=flatten", body)
 	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
 	router.ServeHTTP(responseDecoder, req)
@@ -63,7 +63,7 @@ func TestReturnOnlyOneLineForTypeFlattenFromSpreadsheetRecords(t *testing.T) {
 
 func TestReturnSumOfTheNumbersFromSpreadsheetRecords(t *testing.T) {
 	router, responseDecoder := setupRoutes()
-	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/valid.csv")
+	body, multipartNewWriter := setupFileBody("./test_spreadsheets/valid.csv")
 	req, _ := http.NewRequest("POST", "/echo?type=sum", body)
 	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
 	router.ServeHTTP(responseDecoder, req)
