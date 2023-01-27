@@ -61,6 +61,16 @@ func TestReturnOnlyOneLineForTypeFlattenFromSpreadsheetRecords(t *testing.T) {
 	assert.Equal(t, "\"1,2,3,4\"", responseDecoder.Body.String())
 }
 
+func TestReturnSumOfTheNumbersFromSpreadsheetRecords(t *testing.T) {
+	router, responseDecoder := setupRoutes()
+	body, multipartNewWriter := setupFileBody("./spreadsheets_tests/valid.csv")
+	req, _ := http.NewRequest("POST", "/echo?type=sum", body)
+	req.Header.Add("Content-Type", multipartNewWriter.FormDataContentType())
+	router.ServeHTTP(responseDecoder, req)
+	assert.Equal(t, 200, responseDecoder.Code)
+	assert.Equal(t, "10", responseDecoder.Body.String())
+}
+
 func setupFileBody(fileName string) (*bytes.Buffer, *multipart.Writer) {
 	buffer := new(bytes.Buffer)
 	multipartNewWriter := multipart.NewWriter(buffer)

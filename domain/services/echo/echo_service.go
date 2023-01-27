@@ -49,3 +49,14 @@ func GetCsvLinesInStringArray(records [][]string) ([]string, error) {
 	}
 	return result, nil
 }
+
+func SumValuesFromSpreadsheet(records []string) int {
+	result := 0
+	for _, item := range records {
+		for _, itemSplit := range strings.Split(item, ",") {
+			itemConvertedToInteger, _ := strconv.Atoi(itemSplit)
+			result += itemConvertedToInteger
+		}
+	}
+	return result
+}
