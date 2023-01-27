@@ -5,7 +5,7 @@ This is a project that will receive a csv(only numbers accepted in the spreadshe
 2. Csv converted to only one line string with all records
 3. Show the sum of the numbers in the spreadsheet
 
-The response will be show as a json response in the endpoint
+The response will be show as a json response in the endpoint.
 
 ## Prerequisites
 
